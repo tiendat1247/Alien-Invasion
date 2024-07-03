@@ -9,7 +9,14 @@ class Ship:
         self.screen_rect = ai_game.screen.get_rect()
 
         # Load the ship image and get its rect
-        self.image = pygame.image.load("ship.bmp")
+        self.image = pygame.image.load("Image/ship.bmp")
+        #Get the original size
+        original_size = self.image.get_size()
+        #Keep the ratio, lower the size to 1/4
+        new_ship_size = [original_size[0]//4, original_size[1]//4]
+
+        self.image = pygame.transform.scale(self.image, new_ship_size)
+
         self.rect = self.image.get_rect()
 
         # Center the ship on the bottom of the screen
